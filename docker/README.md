@@ -8,8 +8,6 @@ You're going to need a file named `.env` in the project root directory.  You can
 cp -n .env.example .env
 ```
 
-
-
 ```
 sudo chmod 777 . -R
 ```
@@ -22,9 +20,15 @@ To  build a docker image of testlink, you can use the following command:
 docker build --tag testlink:1.9.20 --tag testlink:latest .
 ```
 # delete admin without grant and create user with grant
+
+go to mysql docker and login
+```
+ docker-compose exec testlink-mysql bash
+ mysql -u root -p
+
 ```
 
-
+```
 mysql> SELECT User, Host FROM mysql.user;
 +------------------+-----------+
 | User             | Host      |
