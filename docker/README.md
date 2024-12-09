@@ -101,6 +101,26 @@ TION_GTID_TAG,XA_RECOVER_ADMIN ON *.* TO `root`@`localhost` WITH GRANT OPTION |
 ------------------------------------------------------------------------------+
 3 rows in set (0.00 sec)
 
+mysql> DROP USER 'admin'@'192.168.192.4';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> DROP USER 'admin'@'192.168.224.4';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE USER 'admin'@'^CIDENTIFIED BY 'admin';
+mysql> GRANT ALL PRIVILEGES ON testlink.* TO 'admin'@'%' IDENTIFIED BY 'admin' WITH GRANT OPTION;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the rig
+ht syntax to use near 'IDENTIFIED BY 'admin' WITH GRANT OPTION' at line 1
+mysql> CREATE USER 'admin'@'%' IDENTIFIED BY 'admin';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> GRANT ALL PRIVILEGES ON testlink.* TO 'admin'@'%' WITH GRANT OPTION;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.02 sec)
+
+
 ```
 
 Alternatively, build without cached layers:
