@@ -4,7 +4,14 @@
 
 You're going to need a file named `.env` in the project root directory.  You can use `.env.example` or create your own.
 
-```bash
+
+## install docker and docker compose
+
+```
+sudo apt update && sudo apt install docker.io && sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo  chmod +x /usr/local/bin/docker-compose
+```
+
+```
 cp -n .env.example .env
 ```
 
